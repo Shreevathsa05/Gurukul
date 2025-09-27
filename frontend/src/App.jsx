@@ -8,6 +8,7 @@ import Upcoming from './pages/Upcoming';
 import Header from './components/Header';
 import MiniMeet from './pages/MiniMeet';
 import Course from './pages/Course';
+import FlashCard from './FlashCard';
 // import FlashCards from './pages/FlashCards';
 
 
@@ -27,7 +28,7 @@ function App() {
         <Route path="/:session/home" element={<HomePage sessionData={sessionData} />} />
         <Route path="/:session/chat" element={<Chat sessionData={sessionData} />} />
         <Route path="/:session/summary" element={<Summary sessionData={sessionData} />} />
-        <Route path="/:session/flashcards" element={<Upcoming sessionData={sessionData} />} />
+        <Route path="/:session/flashcards" element={<FlashCard sessionData={sessionData} />} />
         <Route path="/:session/ppt" element={<Upcoming sessionData={sessionData} />} />
         <Route path="/:session/video" element={<Upcoming sessionData={sessionData} />} />
         <Route path='/course' element={ <Course/>}/>
