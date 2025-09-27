@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import FlashCardComponent from "../components/FlashCardComponent";
 import Uploader from "../components/Uploader";
 
-export default function FlashCard() {
+export default function FlashCards() {
   // Grab the sessionId from the URL
   const { session } = useParams();
 
