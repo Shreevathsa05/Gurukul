@@ -8,7 +8,7 @@ import Upcoming from './pages/Upcoming';
 import Header from './components/Header';
 import MiniMeet from './pages/MiniMeet';
 import Course from './pages/Course';
-import FlashCards from './pages/FlashCards.jsx';
+import FlashCards from './pages/FlashCards';
 
 
 function App() {
