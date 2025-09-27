@@ -87,7 +87,7 @@ export default function HomePage() {
       <section className="py-16 px-6 bg-white text-center">
         <h2 className="text-3xl font-bold mb-8 text-[#006D77]">System Flow</h2>
         <img
-          src="/flowchart.png"
+          src="/workflow.png"
           alt="Flowchart"
           className="mx-auto max-w-3xl shadow-lg rounded-lg border border-[#83C5BE]"
         />
@@ -100,33 +100,33 @@ export default function HomePage() {
         {/* Core Team */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mb-16">
           <div className="p-4 bg-white rounded-xl shadow hover:shadow-lg transition">
-            <img src="/team-lead.jpg" alt="Team Lead" className="w-32 h-32 mx-auto rounded-full border-4 border-[#006D77]" />
-            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Member 1</h3>
+            <img src="/parth.png" alt="Team Lead" className="w-32 h-32 mx-auto rounded-full border-4 border-[#006D77]" />
+            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Parth Gupta</h3>
             <p className="text-gray-600">Team Lead</p>
           </div>
           <div className="p-4 bg-white rounded-xl shadow hover:shadow-lg transition">
-            <img src="/uiux.jpg" alt="UI/UX" className="w-32 h-32 mx-auto rounded-full border-4 border-[#83C5BE]" />
-            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Member 2</h3>
+            <img src="/tarun.png" alt="UI/UX" className="w-32 h-32 mx-auto rounded-full border-4 border-[#83C5BE]" />
+            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Tarun Asthana </h3>
             <p className="text-gray-600">UI/UX Designer</p>
           </div>
           <div className="p-4 bg-white rounded-xl shadow hover:shadow-lg transition">
-            <img src="/genai.jpg" alt="GenAI" className="w-32 h-32 mx-auto rounded-full border-4 border-[#E29578]" />
-            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Member 3</h3>
+            <img src="/shree.png" alt="GenAI" className="w-32 h-32 mx-auto rounded-full border-4 border-[#E29578]" />
+            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Shreevathsa Bhat</h3>
             <p className="text-gray-600">GenAI Engineer</p>
           </div>
           <div className="p-4 bg-white rounded-xl shadow hover:shadow-lg transition">
-            <img src="/fsd1.jpg" alt="FSD" className="w-32 h-32 mx-auto rounded-full border-4 border-[#83C5BE]" />
-            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Member 4</h3>
-            <p className="text-gray-600">Full Stack Developer</p>
+            <img src="/prince.png" alt="FSD" className="w-32 h-32 mx-auto rounded-full border-4 border-[#83C5BE]" />
+            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Prince Maurya</h3>
+            <p className="text-gray-600">FullStack Developer</p>
           </div>
           <div className="p-4 bg-white rounded-xl shadow hover:shadow-lg transition">
-            <img src="/fsd2.jpg" alt="FSD" className="w-32 h-32 mx-auto rounded-full border-4 border-[#83C5BE]" />
-            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Member 5</h3>
-            <p className="text-gray-600">Full Stack Developer</p>
+            <img src="/khushi.png" alt="FSD" className="w-32 h-32 mx-auto rounded-full border-4 border-[#83C5BE]" />
+            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Khushi Gupta</h3>
+            <p className="text-gray-600">FullStack Developer</p>
           </div>
           <div className="p-4 bg-white rounded-xl shadow hover:shadow-lg transition">
-            <img src="/fsd3.jpg" alt="FSD" className="w-32 h-32 mx-auto rounded-full border-4 border-[#83C5BE]" />
-            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Member 6</h3>
+            <img src="/hardik.png" alt="FSD" className="w-28 h-32 mx-auto rounded-full border-4 border-[#83C5BE]" />
+            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Hardik Bansal</h3>
             <p className="text-gray-600">Full Stack Developer</p>
           </div>
         </div>
@@ -135,13 +135,13 @@ export default function HomePage() {
         <h3 className="text-2xl font-semibold text-center mb-8 text-[#006D77]">Our Mentors</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
           <div className="p-4 bg-white rounded-xl shadow hover:shadow-lg transition">
-            <img src="/mentor1.jpg" alt="Mentor 1" className="w-32 h-32 mx-auto rounded-full border-4 border-[#E29578]" />
-            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Mentor 1</h3>
-            <p className="text-gray-600">Domain Expert</p>
+            <img src="/kpcp.jpeg" alt="Mentor 1" className="w-32 h-auto mx-auto rounded-full border-4 border-[#E29578]" />
+            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Krishna Prasad</h3>
+            <p className="text-gray-600">DevOps Engineer III</p>
           </div>
           <div className="p-4 bg-white rounded-xl shadow hover:shadow-lg transition">
-            <img src="/mentor2.jpg" alt="Mentor 2" className="w-32 h-32 mx-auto rounded-full border-4 border-[#E29578]" />
-            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Mentor 2</h3>
+            <img src="/Ls.png" alt="Mentor 2" className="w-32 h-auto mx-auto rounded-full border-4 border-[#E29578]" />
+            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Loukik Salvi</h3>
             <p className="text-gray-600">Technical Guide</p>
           </div>
         </div>

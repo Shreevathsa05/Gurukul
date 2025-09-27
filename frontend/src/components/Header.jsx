@@ -13,6 +13,10 @@ export default function Header({ sessionData }) {
     { name: 'PPT', path: 'ppt' },
     { name: 'Video', path: 'video' },
   ];
+  const nosession = [
+    { name: 'MiniMeet', path: 'minimeet' },
+    { name: 'Course', path: 'course' },
+  ]
 
   const linkClass = ({ isActive }) =>
     `px-3 py-2 rounded transition-colors ${isActive ? 'bg-[#FFDDD2] font-semibold' : 'hover:bg-[#E29578]/30'
@@ -34,6 +38,15 @@ export default function Header({ sessionData }) {
             <NavLink
               key={item.name}
               to={`/${sessionData}/${item.path}`}
+              className={linkClass}
+            >
+              {item.name}
+            </NavLink>
+          ))}
+          {nosession.map((item) => (
+            <NavLink
+              key={item.name}
+              to={`${item.path}`}
               className={linkClass}
             >
               {item.name}
