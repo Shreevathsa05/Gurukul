@@ -19,31 +19,31 @@ export default function HomePage() {
       <section className="pb-4 bg-white text-black flex justify-center px-6">
         <div className="flex flex-wrap justify-center gap-6 max-w-7xl">
           {/* Slidecast */}
-          <div className="flex-1 min-w-[250px] max-w-[300px] p-6 border border-[#83C5BE] rounded-xl bg-[#EDF6F9] shadow-sm hover:shadow-lg hover:bg-[#FFDDD2] transition">
+          <div className="flex-1 min-w-[250px] max-w-[300px] p-6 border border-[#83C5BE] rounded-xl bg-[#EDF6F9] shadow-sm hover:shadow-lg  transition">
             <h3 className="text-xl font-semibold mb-2 text-[#006D77]">Slidecast</h3>
             <p>PPT/PDF + Voice → Lecture stream/download, low-bandwidth friendly.</p>
           </div>
 
           {/* Learners Hub */}
-          <div className="flex-1 min-w-[250px] max-w-[300px] p-6 border border-[#83C5BE] rounded-xl bg-[#EDF6F9] shadow-sm hover:shadow-lg hover:bg-[#FFDDD2] transition">
+          <div className="flex-1 min-w-[250px] max-w-[300px] p-6 border border-[#83C5BE] rounded-xl bg-[#EDF6F9] shadow-sm hover:shadow-lg  transition">
             <h3 className="text-xl font-semibold mb-2 text-[#006D77]">Learners Hub</h3>
             <p>Upload lectures, create courses & auto-compressed videos for rural accessibility.</p>
           </div>
 
           {/* Mini Meet */}
-          <div className="flex-1 min-w-[250px] max-w-[300px] p-6 border border-[#83C5BE] rounded-xl bg-[#EDF6F9] shadow-sm hover:shadow-lg hover:bg-[#FFDDD2] transition">
+          <div className="flex-1 min-w-[250px] max-w-[300px] p-6 border border-[#83C5BE] rounded-xl bg-[#EDF6F9] shadow-sm hover:shadow-lg  transition">
             <h3 className="text-xl font-semibold mb-2 text-[#006D77]">Mini Meet</h3>
             <p>P2P mentoring, doubt-solving, whiteboard, chat & fallback APIs.</p>
           </div>
 
           {/* Teacher Toolkit */}
-          <div className="flex-1 min-w-[250px] max-w-[300px] p-6 border border-[#83C5BE] rounded-xl bg-[#EDF6F9] shadow-sm hover:shadow-lg hover:bg-[#FFDDD2] transition">
+          <div className="flex-1 min-w-[250px] max-w-[300px] p-6 border border-[#83C5BE] rounded-xl bg-[#EDF6F9] shadow-sm hover:shadow-lg  transition">
             <h3 className="text-xl font-semibold mb-2 text-[#006D77]">Teacher Toolkit</h3>
             <p>AI-powered tools to generate PPTs, flashcards, question banks & videos.</p>
           </div>
 
           {/* Student-Centric App */}
-          <div className="flex-1 min-w-[250px] max-w-[300px] p-6 border border-[#83C5BE] rounded-xl bg-[#EDF6F9] shadow-sm hover:shadow-lg hover:bg-[#FFDDD2] transition">
+          <div className="flex-1 min-w-[250px] max-w-[300px] p-6 border border-[#83C5BE] rounded-xl bg-[#EDF6F9] shadow-sm hover:shadow-lg  transition">
             <h3 className="text-xl font-semibold mb-2 text-[#006D77]">Student-Centric App</h3>
             <p>
               Mobile & web app optimized for low bandwidth with caching, local storage, and
@@ -52,7 +52,7 @@ export default function HomePage() {
           </div>
 
           {/* Vlabs */}
-          <div className="flex-1 min-w-[250px] max-w-[300px] p-6 border border-[#83C5BE] rounded-xl bg-[#EDF6F9] shadow-sm hover:shadow-lg hover:bg-[#FFDDD2] transition">
+          <div className="flex-1 min-w-[250px] max-w-[300px] p-6 border border-[#83C5BE] rounded-xl bg-[#EDF6F9] shadow-sm hover:shadow-lg  transition">
             <h3 className="text-xl font-semibold mb-2 text-[#006D77]">Vlabs</h3>
             <p>
               Virtual labs to simulate practical experiments for colleges with limited or no lab infrastructure.
@@ -84,12 +84,12 @@ export default function HomePage() {
       </section>
 
       {/* Flowchart Section */}
-      <section className="py-16 px-6 bg-white text-center">
+      <section className="py-[3rem] px-6 bg-white text-center">
         <h2 className="text-3xl font-bold mb-8 text-[#006D77]">System Flow</h2>
         <img
           src="/workflow.png"
           alt="Flowchart"
-          className="mx-auto max-w-3xl shadow-lg rounded-lg border border-[#83C5BE]"
+          className="mx-auto max-w-3xl shadow-lg rounded-lg border border-[#83C5BE] hover:scale-110 transition-transform duration-300 hover:shadow-2xl"
         />
       </section>
 
@@ -127,22 +127,23 @@ export default function HomePage() {
           <div className="p-4 bg-white rounded-xl shadow hover:shadow-lg transition">
             <img src="/hardik.png" alt="FSD" className="w-28 h-32 mx-auto rounded-full border-4 border-[#83C5BE]" />
             <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Hardik Bansal</h3>
-            <p className="text-gray-600">Full Stack Developer</p>
+            <p className="text-gray-600">FullStack Developer</p>
           </div>
         </div>
 
         {/* Mentors */}
         <h3 className="text-2xl font-semibold text-center mb-8 text-[#006D77]">Our Mentors</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+          
+          <div className="p-4 bg-white rounded-xl shadow hover:shadow-lg transition">
+            <img src="/Ls.png" alt="Mentor 2" className="w-32 h-auto mx-auto rounded-full border-4 border-[#E29578]" />
+            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Loukik Salvi</h3>
+            <p className="text-gray-600">Domain Expert/Technical Guide</p>
+          </div>
           <div className="p-4 bg-white rounded-xl shadow hover:shadow-lg transition">
             <img src="/kpcp.jpeg" alt="Mentor 1" className="w-32 h-auto mx-auto rounded-full border-4 border-[#E29578]" />
             <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Krishna Prasad</h3>
             <p className="text-gray-600">DevOps Engineer III</p>
-          </div>
-          <div className="p-4 bg-white rounded-xl shadow hover:shadow-lg transition">
-            <img src="/Ls.png" alt="Mentor 2" className="w-32 h-auto mx-auto rounded-full border-4 border-[#E29578]" />
-            <h3 className="mt-4 text-xl font-semibold text-[#006D77]">Loukik Salvi</h3>
-            <p className="text-gray-600">Technical Guide</p>
           </div>
         </div>
       </section>
