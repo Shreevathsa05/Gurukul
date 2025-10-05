@@ -117,7 +117,7 @@ export async function generateSummary(text, sessionid) {
     });
     const fullText = text.map(doc => doc.pageContent).join("\n");
     console.log(fullText.length)
-    const prompt = `Please summarize the following document in clear language must include all the keywords of topics so that user can get the complete understanding of all the things covered in this document context, label module wise + topic wise + subtopics structured clearly to get the complete gist of what is there in the document without the need of reacing completely:\n\n${fullText}`;
+    const prompt = `Please summarize the following document in clear language must include all the keywords of topics so that user can get the complete understanding of all the things covered in this document context, label module wise + topic wise + subtopics + topics inside subtopics structured clearly to get the complete gist of what is there in the document without the need of reaching completely:\n\n${fullText}`;
     try {
         const res= await model.invoke(prompt);
         const summary=res.content;
