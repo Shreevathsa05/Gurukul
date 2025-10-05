@@ -137,14 +137,11 @@ Answer concisely but completely.`;
         model: "gemini-2.5-flash",
       });
 
-      const stream = await model.stream([{ role: "user", content: prompt }]);
-      let fullResponse = "";
-      res.setHeader("Content-Type", "text/plain; charset=utf-8");
-      for await (const chunk of stream) {
-        res.write(chunk.delta ?? "");
-        fullResponse += chunk.delta ?? chunk ?? "";
-      }
-      res.end();
+      const response = await model.invoke([{ role: "user", content: prompt }]);
+      let cleaned =response.content
+        .replace(/```json|```/g, "")
+        .trim();
+      res.json(JSON.parse(JSON.stringify(cleaned)))
     } else {
       res.send(summary);
     }

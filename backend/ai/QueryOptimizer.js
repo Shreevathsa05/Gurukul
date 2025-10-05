@@ -16,21 +16,38 @@ export async function getRetrievalDecision(
       role: "user",
       parts: [
         {
-          text: `Given the response according to Summary of uploaded resources, recent chat history, and latest user question,
-decide whether retrieval from the vector DB is required.
+          text: `You are a retrieval decision agent.
 
-Return JSON:
-- reqd: boolean
-- retrievalQuery: string
+Your job: Decide if additional retrieval from a vector DB is needed, and if so, generate a retrieval query that covers the user's request and all related entities or concepts from the summary.
 
-Summary of uploaded resources:
+Rules:
+1. If the latest user query asks for new details, facts, explanations, comparisons, or topics NOT explicitly covered in the chat history or summary → reqd = true.
+2. If the user asks to restate, summarize, or elaborate on existing content → reqd = false.
+3. When reqd = true, the retrievalQuery must:
+   - Include keywords from the user query.
+   - Expand to include related concepts, entities, or subtopics mentioned in the summary that might be relevant.
+   - Avoid repeating irrelevant or generic terms.
+
+Examples:
+Q: "Give me more details about neural networks"  
+→ { "reqd": true, "retrievalQuery": "neural networks architecture, training, layers, activation functions, applications" }
+
+Q: "Summarize what we've discussed"  
+→ { "reqd": false, "retrievalQuery": "" }
+
+Q: "Compare CNN and RNN"  
+→ { "reqd": true, "retrievalQuery": "comparison between convolutional neural networks and recurrent neural networks, advantages, use cases" }
+
+Now, decide for this input.
+
+Summary:
 ${summary}
 
-Recent chat history:
+Chat History:
 ${historyText}
 
-latest user question
-${query}`,
+User Question:
+${query}`
         },
       ],
     },
@@ -51,6 +68,6 @@ ${query}`,
       },
     },
   });
-console.log("Retrieval decision response:", response.candidates[0].content.parts[0].text);
+  console.log("Retrieval decision response:", response.candidates[0].content.parts[0].text);
   return JSON.parse(response.candidates[0].content.parts[0].text);
 }
