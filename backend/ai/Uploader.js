@@ -80,6 +80,7 @@ export async function loadDocument(filePath, sessionid) {
     }
 
     generateSummary(rawDocs, sessionid)
+    console.log("summary generation called")
 
     // chunk docs
     const textSplitter = new RecursiveCharacterTextSplitter({

@@ -24,12 +24,12 @@ export async function retrieve(query, collectionName = "doc_chunks") {
     return results.map(doc => doc.pageContent)
 }
 
-export async function getAllDocs(collectionName = "doc_chunks") {
+export async function getAllDocs(collectionName) {
     const embeddings = new GoogleGenerativeAIEmbeddings({
         apiKey: process.env.GEMINI_API_KEY,
         model: 'text-embedding-004',
     })
-    const qdrantClient = new QdrantClient({ url: process.env.QDRANT_URL })
+    const qdrantClient = new QdrantClient({ url: process.env.QDRANT_URL,apiKey: process.env.QDRANT_API_KEY, })
 
 
     const vectorStore = new QdrantVectorStore(embeddings, {
@@ -49,7 +49,7 @@ export async function getAllDocsNoFormat(collectionName = "doc_chunks") {
         apiKey: process.env.GEMINI_API_KEY,
         model: 'text-embedding-004',
     })
-    const qdrantClient = new QdrantClient({ url: process.env.QDRANT_URL })
+    const qdrantClient = new QdrantClient({ url: process.env.QDRANT_URL,apiKey: process.env.QDRANT_API_KEY })
 
 
     const vectorStore = new QdrantVectorStore(embeddings, {

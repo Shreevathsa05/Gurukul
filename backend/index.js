@@ -7,19 +7,21 @@ import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
 import { fileURLToPath } from 'url';
-import { loadDocument } from './ai/Uploader.js'; // add .js if using ESM
+import { generateSummary, loadDocument } from './ai/Uploader.js'; // add .js if using ESM
 import SummaryModel from './schema/ResponseSchema.js'
 import { ChatGoogleGenerativeAI } from '@langchain/google-genai';
-import { retrieve } from './ai/Retriver.js';
+import { getAllDocs, retrieve } from './ai/Retriver.js';
 import { getRetrievalDecision } from './ai/QueryOptimizer.js'
 import HistoryModel from './schema/HistoryModel.js';
 import { generateFlashcards } from './ai/Flashcards.js';
+import { connectDB } from './schema/connection';
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 dotenv.config();
 
+connectDB()
 // Test route
 app.get('/test', (req, res) => {
   res.json({ message: 'Api is live' });
@@ -98,10 +100,10 @@ app.post("/ragChat", async (req, res) => {
     const summary = summaryDoc?.summary || "No summary found.";
     // console.log("Summary:", summary);
 
-    let optimizedRetrieval=null
+    let optimizedRetrieval = null
     // --- Decide if retrieval is required ---
     try {
-      optimizedRetrieval =await getRetrievalDecision(query, summary, history);
+      optimizedRetrieval = await getRetrievalDecision(query, summary, history);
       console.log("Decision:", optimizedRetrieval);
     } catch (error) {
       console.error("Error in retrieval decision:", error);
@@ -138,7 +140,7 @@ Answer concisely but completely.`;
       });
 
       const response = await model.invoke([{ role: "user", content: prompt }]);
-      let cleaned =response.content
+      let cleaned = response.content
         .replace(/```json|```/g, "")
         .trim();
       res.json(JSON.parse(JSON.stringify(cleaned)))
@@ -153,27 +155,50 @@ Answer concisely but completely.`;
 
 // summary
 app.get("/summary/:sessionid", async (req, res) => {
-  const { sessionid } = req.params.sessionid;
+  console.log("called /summary")
+  const sessionid = req.params.sessionid;
+  try {
     const summaryDoc = await SummaryModel.findOne({ sessionid });
     const summary = summaryDoc?.summary || "No summary found.";
-    return res.json({summary})
+
+    if (summary == "No summary found.") {
+      await generateSummary(text, sessionid)
+      const summaryDoc = await SummaryModel.findOne({ sessionid });
+      const summary = summaryDoc?.summary;
+      return res.json({ summary })
+    }
+    else {
+      return res.json({ summary })
+    }
+  } catch (error) {
+    console.log(error)
+    const text = await getAllDocs(`doc_${sessionid}`)
+    await generateSummary(text, sessionid)
+    const summaryDoc = await SummaryModel.findOne({ sessionid });
+    const summary = summaryDoc?.summary;
+    return res.json({ summary })
+  }
+
 })
 
 app.get('/flashcards/:sessionid', async (req, res) => {
-  const { sessionid } = req.params.sessionid;
+  console.log("called /flashcards")
+  const sessionid = req.params.sessionid;
+  console.log(sessionid)
   if (!sessionid) {
     return res.status(400).send("Missing sessionid in query parameters.");
   }
   const summaryDoc = await SummaryModel.findOne({ sessionid });
   const summary = summaryDoc?.summary || "No summary found.";
-
-  const cards=generateFlashcards(sessionid, summary)
-  return res.json({cards})
+// console.log(summary)
+  const cards = await generateFlashcards(sessionid, summary)
+  console.log(cards)
+  return res.json({ cards })
 })
 
 // 
 // Port listner
 // 
-app.listen(process.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 3000, async () => {
   console.log(`API on http://localhost:${process.env.PORT || 3000}`)
 });
